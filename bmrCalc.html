@@ -1,0 +1,2620 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DR FITNESS || BMR CALCULATOR</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"></link>
+    <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet"></link>
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/indexStyless.css"> -->
+    <style>
+      .form-control, .form-select, .card, .btn
+      {
+          border-radius: 15px;
+      }
+
+      .form-control, .form-select
+      {
+          background: none;
+          color: #fff;
+      }
+
+      .form-select
+      {
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e") !important;
+          background-repeat: no-repeat !important;
+          background-position: right 0.75rem center !important;
+          background-size: 16px 12px !important;
+      }
+
+      input[type=checkbox], input[type=radio]
+      {
+          width: 23px;
+          height: 23px;
+          display: inline-block;
+          top: 0;
+          position: relative;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          border: 1px solid #ffffff;
+          overflow: hidden;
+      }
+
+      input[type=checkbox]
+      {
+          border-radius: 3px;
+      }
+
+      input[type=radio]
+      {
+          border-radius: 100%;
+      }
+
+      input[type=checkbox]:checked, input[type=radio]:checked
+      {
+          border: none;
+      }
+
+      input[type=checkbox]:checked:after, input[type=radio]:checked:after
+      {
+          content: "\f00c";
+          font-family: "Font Awesome 5 Pro";
+          font-weight: 900;
+          left: 0;
+          position:absolute;
+          top:0;
+          font-size: 15px;
+          color: #000;
+          background: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+      }
+  </style>
+  </head>
+  <body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+
+      <!-- Preloader -->
+      <div class="preloader flex-column justify-content-center
+        align-items-center">
+        <img class="animation__wobble" src="dist/img/AdminLTELogo.png"
+          alt="AdminLTELogo" height="60" width="60">
+      </div>
+
+      <!-- Navbar -->
+      <nav class="main-header navbar navbar-expand navbar-dark">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                class="fas fa-bars"></i></a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Contact</a>
+          </li>
+        </ul>
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+          <!-- Navbar Search -->
+          <li class="nav-item">
+            <a class="nav-link" data-widget="navbar-search" href="#"
+              role="button">
+              <i class="fas fa-search"></i>
+            </a>
+            <div class="navbar-search-block">
+              <form class="form-inline">
+                <div class="input-group input-group-sm">
+                  <input class="form-control form-control-navbar" type="search"
+                    placeholder="Search" aria-label="Search">
+                  <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                      <i class="fas fa-search"></i>
+                    </button>
+                    <button class="btn btn-navbar" type="button"
+                      data-widget="navbar-search">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </li>
+
+          <!-- Messages Dropdown Menu -->
+          <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+              <i class="far fa-comments"></i>
+              <span class="badge badge-danger navbar-badge">3</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <a href="#" class="dropdown-item">
+                <!-- Message Start -->
+                <div class="media">
+                  <img src="dist/img/user1-128x128.jpg" alt="User Avatar"
+                    class="img-size-50 mr-3 img-circle">
+                  <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                      Brad Diesel
+                      <span class="float-right text-sm text-danger"><i
+                          class="fas fa-star"></i></span>
+                    </h3>
+                    <p class="text-sm">Call me whenever you can...</p>
+                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>
+                      4 Hours Ago</p>
+                  </div>
+                </div>
+                <!-- Message End -->
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <!-- Message Start -->
+                <div class="media">
+                  <img src="dist/img/user8-128x128.jpg" alt="User Avatar"
+                    class="img-size-50 img-circle mr-3">
+                  <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                      John Pierce
+                      <span class="float-right text-sm text-muted"><i class="fas
+                          fa-star"></i></span>
+                    </h3>
+                    <p class="text-sm">I got your message bro</p>
+                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>
+                      4 Hours Ago</p>
+                  </div>
+                </div>
+                <!-- Message End -->
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <!-- Message Start -->
+                <div class="media">
+                  <img src="dist/img/user3-128x128.jpg" alt="User Avatar"
+                    class="img-size-50 img-circle mr-3">
+                  <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                      Nora Silvester
+                      <span class="float-right text-sm text-warning"><i
+                          class="fas fa-star"></i></span>
+                    </h3>
+                    <p class="text-sm">The subject goes here</p>
+                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>
+                      4 Hours Ago</p>
+                  </div>
+                </div>
+                <!-- Message End -->
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+            </div>
+          </li>
+          <!-- Notifications Dropdown Menu -->
+          <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+              <i class="far fa-bell"></i>
+              <span class="badge badge-warning navbar-badge">15</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <span class="dropdown-item dropdown-header">15 Notifications</span>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-envelope mr-2"></i> 4 new messages
+                <span class="float-right text-muted text-sm">3 mins</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-users mr-2"></i> 8 friend requests
+                <span class="float-right text-muted text-sm">12 hours</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-file mr-2"></i> 3 new reports
+                <span class="float-right text-muted text-sm">2 days</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item dropdown-footer">See All
+                Notifications</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+              <i class="fas fa-expand-arrows-alt"></i>
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" data-widget="control-sidebar" data-slide="true"
+              href="#" role="button">
+              <i class="fas fa-th-large"></i>
+            </a>
+          </li> -->
+        </ul>
+      </nav>
+      <!-- /.navbar -->
+
+      <!-- Main Sidebar Container -->
+      <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="dashboard.html" class="brand-link">
+          <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+            class="brand-image img-circle elevation-3" style="opacity: .8">
+          <span class="brand-text font-weight-light">DR FITNESS</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <!-- Sidebar user panel (optional) -->
+          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+              <img src="dist/img/user.png" class="img-circle
+                elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+              <a href="profile.html" class="d-block">Romeo Plaza Jr</a>
+            </div>
+          </div>
+
+          <!-- SidebarSearch Form -->
+          <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+              <input class="form-control form-control-sidebar" type="search"
+                placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-sidebar">
+                  <i class="fas fa-search fa-fw"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Left Sidebar Menu -->
+          <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column"
+              data-widget="treeview" role="menu" data-accordion="false">
+              <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+              <!-- Dashboard -->
+              <li class="nav-item" style="font-weight: bold;">
+                <a href="dashboard.html" class="nav-link">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Dashboard
+                    <span class="badge badge-info right">18</span>
+                  </p>
+                </a>
+              </li>
+              <!-- Calendar -->
+              <li class="nav-item">
+                <a href="calendar.html" class="nav-link">
+                  <i class="nav-icon fas fa-calendar-alt"></i>
+                  <p>
+                    Calendar
+                  </p>
+                </a>
+              </li>
+              <!-- Tutorials Start -->
+              <li class="nav-header" style="text-align: center; font-weight:
+                bold; font-size: 20px;">Workout Tutorials
+              </li>
+              <!-- Body Building -->
+              <li class="nav-item">
+                <a href="#" class="nav-link" style="font-weight: bold;">
+                  <i class="nav-icon fa-solid fa-child-reaching"></i>
+                  <p>
+                    Body Building
+                  </p>
+                </a>
+                <!-- Shoulder Workout -->
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <p>
+                        Shoulder Workout
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <!-- Anterior Deltoid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Anterior Deltoid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Lateral Deltoid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Lateral Deltoid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Posterior Deltoid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Posterior Deltoid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <!-- Chest Workout -->
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <p>
+                        Chest Workout
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <!-- Pectoralis Major -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Pectoralis Major
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Pectoralis Minor -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Pectoralis Minor
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Serratus Anterior -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Serratus Anterior
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+
+                  </li>
+                </ul>
+                <!-- Back Workout -->
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <p>
+                        Back Workout
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <!-- Latissimus Dorsi (Lats) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Latissimus Dorsi (Lats)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Trapezius (Traps) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Trapezius (Traps)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Erector Spinae (Spinal Erectors) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Erector Spinae (Spinal Erectors)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Rhomboid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Rhomboid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Teres Major -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Teres Major
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <!-- Biceps Workout -->
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <p>
+                        Biceps Workout
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <!-- Pectoralis Major -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Pectoralis Major
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Pectoralis Minor -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Pectoralis Minor
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Serratus Anterior -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Serratus Anterior
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+
+                  </li>
+                </ul>
+                <!-- Triceps Workout -->
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <p>
+                        Triceps Workout
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <!-- Latissimus Dorsi (Lats) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Latissimus Dorsi (Lats)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Trapezius (Traps) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Trapezius (Traps)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Erector Spinae (Spinal Erectors) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Erector Spinae (Spinal Erectors)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Rhomboid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Rhomboid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Teres Major -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Teres Major
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <!-- Abs Workout -->
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <p>
+                        Abs Workout
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <!-- Latissimus Dorsi (Lats) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Latissimus Dorsi (Lats)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Trapezius (Traps) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Trapezius (Traps)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Erector Spinae (Spinal Erectors) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Erector Spinae (Spinal Erectors)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Rhomboid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Rhomboid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Teres Major -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Teres Major
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <!-- Quadriceps Workout -->
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <p>
+                        Quadriceps Workout
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <!-- Latissimus Dorsi (Lats) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Latissimus Dorsi (Lats)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Trapezius (Traps) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Trapezius (Traps)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Erector Spinae (Spinal Erectors) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Erector Spinae (Spinal Erectors)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Rhomboid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Rhomboid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Teres Major -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Teres Major
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <!-- Glutes  Workout -->
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <p>
+                        Glutes Workout
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <!-- Latissimus Dorsi (Lats) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Latissimus Dorsi (Lats)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Trapezius (Traps) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Trapezius (Traps)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Erector Spinae (Spinal Erectors) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Erector Spinae (Spinal Erectors)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Rhomboid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Rhomboid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Teres Major -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Teres Major
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <!-- Hamstrings Workout -->
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <p>
+                        Hamstrings Workout
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <!-- Latissimus Dorsi (Lats) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Latissimus Dorsi (Lats)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Trapezius (Traps) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Trapezius (Traps)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Erector Spinae (Spinal Erectors) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Erector Spinae (Spinal Erectors)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Rhomboid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Rhomboid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Teres Major -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Teres Major
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <!-- Calves Workout -->
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <p>
+                        Calves Workout
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <!-- Latissimus Dorsi (Lats) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Latissimus Dorsi (Lats)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Trapezius (Traps) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Trapezius (Traps)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Erector Spinae (Spinal Erectors) -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Erector Spinae (Spinal Erectors)
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Rhomboid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Rhomboid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Teres Major -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Teres Major
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <!-- Power Lifting -->
+              <li class="nav-item">
+                <a href="#" class="nav-link" style="font-weight: bold;">
+                  <i class="nav-icon fa-solid fa-child-reaching"></i>
+                  <p>
+                    Power Lifting
+                  </p>
+                </a>
+                <!-- Shoulder Workout -->
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <p>
+                        Shoulder Workout
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <!-- Anterior Deltoid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Anterior Deltoid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Lateral Deltoid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Lateral Deltoid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Posterior Deltoid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Posterior Deltoid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <!-- Aerobics -->
+              <li class="nav-item">
+                <a href="#" class="nav-link" style="font-weight: bold;">
+                  <i class="nav-icon fa-solid fa-child-reaching"></i>
+                  <p>
+                    Aerobics
+                  </p>
+                </a>
+                <!-- Shoulder Workout -->
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <p>
+                        Shoulder Workout
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <!-- Anterior Deltoid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Anterior Deltoid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Lateral Deltoid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Lateral Deltoid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Posterior Deltoid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Posterior Deltoid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <!-- MMA Training -->
+              <li class="nav-item">
+                <a href="#" class="nav-link" style="font-weight: bold;">
+                  <i class="nav-icon fa-solid fa-child-reaching"></i>
+                  <p>
+                    MMA Training
+                  </p>
+                </a>
+                <!-- Shoulder Workout -->
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <p>
+                        Shoulder Workout
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <!-- Anterior Deltoid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Anterior Deltoid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Lateral Deltoid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Lateral Deltoid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Posterior Deltoid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Posterior Deltoid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <!-- Boxing -->
+              <li class="nav-item">
+                <a href="#" class="nav-link" style="font-weight: bold;">
+                  <i class="nav-icon fa-solid fa-child-reaching"></i>
+                  <p>
+                    Boxing
+                  </p>
+                </a>
+                <!-- Shoulder Workout -->
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <p>
+                        Shoulder Workout
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <!-- Anterior Deltoid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Anterior Deltoid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Lateral Deltoid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Lateral Deltoid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- Posterior Deltoid -->
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" style="text-align:
+                          center;">
+                          <p>
+                            Posterior Deltoid
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              <i class="fa fa-play" aria-hidden="true"></i>
+                              <p style="padding-left: 5px;"> Video 2</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <hr>
+              <!-- Calculators -->
+              <li class="nav-item">
+                <a href="#" class="nav-link active" style="font-weight: bold;">
+                  <i class="nav-icon fa-solid fa-calculator"></i>
+                  <p>
+                    Calculators
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="foodCalCalc.html" target="_blank" class="nav-link">
+                      <p>Food Calories</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="bmiCalc.html" class="nav-link">
+                      <p>Body Mass Index</p>
+                    </a>
+                  </li>
+                  <li class="nav-item active">
+                    <a href="#" class="nav-link">
+                      <p>Basal Metabolic Rate</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <!-- Profile -->
+              <li class="nav-item">
+                <a href="profile.html" class="nav-link">
+                  <i class="nav-icon fa-solid fa-user"></i>
+                  <p>Profile</p>
+                </a>
+              </li>
+              <footer style="margin-top: 320px; color: white;">
+                <strong>Copyright &copy; 2022 DR FITNESS.</strong>
+                <br>
+                All rights reserved.
+                <br>
+                <b>Version</b> 1.0.0
+              </footer>
+            </ul>
+          </nav>
+          <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+      </aside>
+      <!-- /Main Sidebar Container -->
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1>Basal Metabolic Rate</h1>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                  <li class="breadcrumb-item active">BMI Form</li>
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.container-fluid -->
+        </section>
+        <!-- Main content -->
+        <!--==================== CALCULATE ====================-->
+        <section class="calculate section">
+          <div class="calculate__container container grid">
+            <div class="calculate__content">
+              <p class="calculate__description">
+                The Basal Metabolic Rate (BMR) Calculator estimates your basal
+                metabolic rate—the amount of energy expended while at rest in a
+                neutrally temperate environment, and in a post-absorptive state
+                (meaning that the digestive system is inactive, which requires
+                about 12 hours of fasting).
+              </p>
+              <form class="CalculateForm" method="post">
+                <div class="card bg-dark text-white">
+                  <h4  class="text-center text-white card-header mb-4">BMR
+                    Calculator</h4>
+                  <div class="card-body">
+                    <div class="row g-5">
+                      <div class="col-sm-4">
+                        <div>
+                          <h5>Age*</h5>
+                          <input class="form-control text-end" name="age"
+                            required="" type="number" value="25" />
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div>
+                          <h5>Gender*</h5>
+                          <div class="form-control" style="padding-bottom: 35px;">
+                            <div class="row">
+                              <div class="col-6 d-flex align-items-center">
+                                <input checked="" id="gender_male" name="gender"
+                                  required="" type="radio" value="0" />
+                                <label class="ms-2">Male</label>
+                              </div>
+                              <div class="col-6 d-flex align-items-center">
+                                <input id="gender_female" name="gender"
+                                  required="" type="radio" value="1" />
+                                <label class="ms-2">Female</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div>
+                          <h5>Body Fat*</h5>
+                          <div class="d-flex align-items-center">
+                            <input class="form-control text-end" name="bodyFat"
+                              required="" type="number" value="20" />
+                            <span class="btn ms-1 bg-warning">%</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div>
+                          <h5>Height*</h5>
+                          <div class="d-flex align-items-center">
+                            <input class="form-control text-end" name="height"
+                              required="" type="number" value="180" />
+                            <span class="btn ms-1 bg-warning text-nowrap">cm</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div>
+                          <h5>Weight*</h5>
+                          <div class="d-flex align-items-center">
+                            <input class="form-control text-end" name="weight"
+                              required="" type="number" value="65" />
+                            <span class="btn ms-1 bg-warning text-nowrap">kg</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <h5>Activity*</h5>
+                        <select class="form-select bg-dark" name="activity" required="">
+                          <option value="1">Basal Metabolic Rate (BMR)</option>
+                          <option value="1.2">Sedentary: little or no exercise</option>
+                          <option value="1.375">Light: exercise 1-3 times/week</option>
+                          <option selected="" value="1.465">Moderate: exercise
+                            4-5 times/week</option>
+                          <option value="1.55">Active: daily exercise or intense
+                            exercise 3-4 times/week</option>
+                          <option value="1.725">Very Active: intense exercise
+                            6-7 times/week</option>
+                          <option value="1.9">Extra Active: very intense
+                            exercise daily, or physical job</option>
+                        </select>
+                      </div>
+                      <div class="col-sm-6">
+                        <div>
+                          <h5>Result Unit*</h5>
+                          <div class="form-control" style="padding-bottom: 35px;">
+                            <div class="row">
+                              <div class="col-6 d-flex align-items-center">
+                                <input checked="" id="unit_calories" name="unit"
+                                  required="" type="radio" value="Calories" />
+                                <label class="ms-2">Calories</label>
+                              </div>
+                              <div class="col-6 d-flex align-items-center">
+                                <input id="unit_kilo" name="unit" required=""
+                                  type="radio" value="kilojoules" />
+                                <label class="ms-2">kilojoules</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div>
+                          <h5>BMR estimation formula*</h5>
+                          <div class="row g-3">
+                            <div class="col-sm-12 d-flex align-items-center">
+                              <input checked="" id="Mifflin_St_Jeor"
+                                name="formula" required="" type="radio"
+                                value="0" />
+                              <label class="ms-2">Mifflin St Jeor</label>
+                            </div>
+                            <div class="col-sm-12 d-flex align-items-center">
+                              <input id="Revised_Harris_Benedict" name="formula"
+                                required="" type="radio" value="1" />
+                              <label class="ms-2">Revised Harris-Benedict</label>
+                            </div>
+                            <div class="col-sm-12 d-flex align-items-center">
+                              <input id="Katch_McArdle" name="formula"
+                                required="" type="radio" value="2" />
+                              <label class="ms-2">Katch-McArdle</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ans_calculate"></div>
+                  <div class="text-center mt-4 card-footer">
+                    <button class="btn btn-success"
+                      onclick="calculateCalorie(this)" type="button">
+                      <i class="fas fa-calculator me-3"></i>
+                      Calculate
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <p class="calculate__message" id="calculate-message" ></p>
+            </div>
+          </div>
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        <strong>Copyright &copy; 2022 DR FITNESS.</strong>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+          <b>Version</b> 3.2.0
+        </div>
+      </footer>
+
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+      </aside>
+      <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- bs-custom-file-input -->
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
+
+    <!-- Calculate Script -->
+    <script>
+      function calculateCalorie(obj)
+      {
+          const age = obj.form.age.value;
+          const gender = obj.form.gender.value;
+          const bodyFat = obj.form.bodyFat.value;
+          const height = obj.form.height.value;
+          const weight = obj.form.weight.value;
+          const activity = obj.form.activity.value;
+          const unit = obj.form.unit.value;
+          const formula = obj.form.formula.value;
+
+          let BMR = '';
+          if(formula == 0) // Mifflin
+          {
+              BMR = Mifflin(gender, age, bodyFat, height, weight);
+          }
+          else if(formula == 1) // Harris
+          {
+              BMR = Harris(gender, age, bodyFat, height, weight);
+          }
+          else if(formula == 2) // Katch
+          {
+              BMR = Katch(bodyFat, weight);
+          }
+
+          let ret = parseFloat(BMR)*parseFloat(activity);
+          if(unit == 'kilojoules')
+          {
+              ret = (ret*4.1868);
+          }
+
+          document.querySelector(".ans_calculate").innerHTML = 
+          '<div class="container"><h4 class="text-center my-3 text-danger fs-4">You should consume <span class="text-white">'+Math.ceil(ret)+' '+unit+'/day </span> of calorie to maintain your weight. </h4></div>';
+      }
+
+      function Mifflin(gender, age, bodyFat, height, weight)
+      {
+          let BMR = (10*weight) + (6.25*height) - (5*age) + 5;
+          if(gender == 1) // Female
+          {
+              BMR = (10*weight) + (6.25*height) - (5*age) - 161;
+          }
+
+          return BMR;
+      }
+
+      function Harris(gender, age, bodyFat, height, weight)
+      {
+          let BMR = (13.397*weight) + (4.799*height) - (5.677*age) + 88.362;
+          if(gender == 1) // Female
+          {
+              BMR = (9.247*weight) + (3.098*height) - (4.330*age) + 447.593;
+          }
+
+          return BMR;
+      }
+
+      function Katch(bodyFat, weight)
+      {
+          let BMR = 370 + 21.6*(1 - (bodyFat/100))*weight;
+
+          return BMR;
+      }
+  </script>
+  </body>
+</html>
